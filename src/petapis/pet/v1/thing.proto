@@ -16,10 +16,10 @@ message ChildThing {
 message Thing {
   option (pet.v1.message) = {
     events: {
-      schedule: "pet.v1.ChildThing",
+      MY_KEY: "pet.v1.ChildThing",
     },
     events2: [
-      { key: 'schedule', value: "pet.v1.ChildThing" }
+      { key: 'MY_KEY', value: "pet.v1.ChildThing" }
     ]
   };
 
