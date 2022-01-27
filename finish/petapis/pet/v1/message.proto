@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package pet.v1;
+
+import "google/protobuf/descriptor.proto";
+option go_package = "github.com/bufbuild/buf-tour/petstore/gen/proto/go/pet/v1;petv1";
+option java_multiple_files = true;
+
+message MapFieldEntry {
+  optional string key = 1;
+  optional string value = 2;
+}
+
+// Pet represents a pet in the pet store.
+message MessageOptions {
+
+  // A map of supported event names to event types.
+  map<string, string> events = 1;
+
+  repeated MapFieldEntry events2 = 2;
+
+}
+
+extend google.protobuf.MessageOptions {
+  MessageOptions message = 90201;
+}

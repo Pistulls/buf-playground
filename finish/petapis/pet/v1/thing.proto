@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package pet.v1;
+
+option go_package = "github.com/bufbuild/buf-tour/petstore/gen/proto/go/pet/v1;petv1";
+
+import "google/type/datetime.proto";
+import "pet/v1/message.proto";
+
+
+message ChildThing {
+  string id = 1;
+}
+
+// Pet represents a pet in the pet store.
+message Thing {
+  option (pet.v1.message) = {
+    events: {
+      schedule: "pet.v1.ChildThing",
+    },
+    events2: [
+      { key: 'schedule', value: "pet.v1.ChildThing" }
+    ]
+  };
+
+  string name = 1;
+
+}
